@@ -3,7 +3,7 @@
 Tutorial Maker helps you to generate a tutorial page from example html file.
 
 The default template will show like this
-![capture](./examples/capture.png =100x130)
+![](./examples/capture.png =100x130)
 
 
 ## Install
