@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="http://dpmap.f2e.dp/styles/site.dianping.css">
+    <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.staticfile.org/highlight.js/8.0/styles/solarized_dark.min.css">
+    <script src="http://cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script src="http://cdn.staticfile.org/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+          <iframe height="300px" width="100%"></iframe>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <ul id="codetab" class="nav nav-tabs">
+            <li class="active"><a href="#jscode">Javascript</a></li>
+            <li><a href="#allcode">Javascript+Html</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="jscode" class="tab-pane active">
+              <pre><code class="javascript">var a = document.createElement('div')</code></pre>
+            </div>
+            <div id="allcode" class="tab-pane">
+              <pre><code class="html">&lt;html&gt;
+    &lt;head&gt;
+    &lt;/head&gt;
+    &lt;body&gt;Hello&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $('#codetab a').click(function (e) {
+          e.preventDefault();
+          $(this).tab('show');
+      });
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

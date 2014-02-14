@@ -1,0 +1,47 @@
+doctype html
+html
+    head
+        title=title
+        link(rel="stylesheet", href="http://dpmap.f2e.dp/styles/site.dianping.css")
+        link(rel="stylesheet", href="http://cdn.staticfile.org/twitter-bootstrap/2.3.2/css/bootstrap.min.css")
+        link(rel="stylesheet", href="http://cdn.staticfile.org/highlight.js/8.0/styles/solarized_dark.min.css")
+        script(src="http://cdn.staticfile.org/jquery/1.9.1/jquery.min.js")
+        script(src="http://yandex.st/highlightjs/8.0/highlight.min.js")
+        script(src="http://cdn.staticfile.org/twitter-bootstrap/2.3.2/js/bootstrap.min.js")
+    body
+        .container-fluid
+            .row-fluid
+                .span12
+                    iframe(height="300px", width="100%", src="#{iframeURL}")
+            .row-fluid
+                .span12
+                    ul.nav.nav-tabs#codetab
+                        if jsContent
+                            li
+                                a(href="#jscode") Javascript
+                        if cssContent
+                            li
+                                a(href="#csscode") Css
+                        if htmlContent
+                            li
+                                a(href="#allcode") Javascript+Css+Html
+                    .tab-content
+                        if jsContent
+                            .tab-pane#jscode
+                                pre: code.javascript= jsContent
+                        if cssContent
+                            .tab-pane#csscode
+                                pre: code.css= cssContent
+                        if htmlContent
+                            .tab-pane#allcode
+                                pre: code.html= htmlContent
+        script.
+            $('#codetab a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+
+            $('#codetab a:first').tab('show');
+
+            hljs.initHighlightingOnLoad();
+        //- iframe(src="full/#{filename}.html")

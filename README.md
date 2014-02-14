@@ -1,19 +1,46 @@
 # Tutorial Maker
 
-[![Build Status](https://travis-ci.org/villadora/tutorial-maker?branch=master)](https://travis-ci.org/villadora/tutorial-maker)
-
 Tutorial Maker helps you to generate a tutorial page from example html file.
 
+[]()
 
 ## Install
 
 
    npm install -g tutorial-maker
 
-## Config
-
-
 ## Usage
+
+### In command line
+
+    tmaker -d dest/folder -t templateFile.jade example1.html example2.html
+
+See help information:
+
+    tmaker -h
+
+
+### Use as api
+
+    var tmaker = require('tutorial-maker');
+    tmaker(['example1.html', 'example2.html', ...], {
+        dest: 'dest/folder',
+        tempalteFile: 'template/file',
+        // or 
+        template: 'template content',
+        exampleDir: 'folder/to/put/examples',
+        // you can add following 2 functions to custom the generate process
+        compiler: function(data, template) {
+            // custom compiler function
+        },
+        analyze: function(exampleContent, callback) {
+            // parse data from exampleContent
+            callback(err, data);
+        }
+    }, function(err) {
+
+    });
+
 
 ## License
 
